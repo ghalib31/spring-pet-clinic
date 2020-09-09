@@ -17,7 +17,7 @@
 
   <groupId>mgn.springframework</groupId>
   <artifactId>spring-pet-clinic</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4-SNAPSHOT</version>
 
   <name>spring-pet-clinic</name>
   <description>Spring Pet Clinic</description>
@@ -45,7 +45,7 @@
 
   <scm>
     <developerConnection>scm:git:https://github.com/ghalib31/spring-pet-clinic.git</developerConnection>
-    <tag>spring-pet-clinic-0.0.3</tag>
+    <tag>HEAD</tag>
   </scm>
 
 </project>
