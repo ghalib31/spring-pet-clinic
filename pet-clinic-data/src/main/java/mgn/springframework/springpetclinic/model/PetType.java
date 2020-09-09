@@ -1,4 +1,4 @@
-package springpetclinic.model;
+package mgn.springframework.springpetclinic.model;
 
 import lombok.Getter;
 import lombok.Setter;
