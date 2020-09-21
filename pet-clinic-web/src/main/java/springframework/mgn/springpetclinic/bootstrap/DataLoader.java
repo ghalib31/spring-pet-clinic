@@ -8,8 +8,6 @@ import mgn.springframework.springpetclinic.model.Owner;
 import mgn.springframework.springpetclinic.model.Vet;
 import mgn.springframework.springpetclinic.service.OwnerService;
 import mgn.springframework.springpetclinic.service.VetService;
-import mgn.springframework.springpetclinic.service.map.OwnerServiceMap;
-import mgn.springframework.springpetclinic.service.map.VetServiceMap;
 
 @Slf4j
 @Component
@@ -18,9 +16,9 @@ public class DataLoader implements CommandLineRunner {
   private final OwnerService ownerService;
   private final VetService vetService;
 
-  public DataLoader() {
-    this.ownerService = new OwnerServiceMap();
-    this.vetService = new VetServiceMap();
+  public DataLoader(OwnerService ownerService, VetService vetService) {
+    this.ownerService = ownerService;
+    this.vetService = vetService;
   }
 
   @Override
