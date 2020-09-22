@@ -1,4 +1,4 @@
-package springframework.mgn.springpetclinic.bootstrap;
+package mgn.springframework.springpetclinic.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

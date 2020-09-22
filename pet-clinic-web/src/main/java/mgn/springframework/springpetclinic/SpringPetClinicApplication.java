@@ -1,11 +1,9 @@
-package springframework.mgn.springpetclinic;
+package mgn.springframework.springpetclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("mgn.springframework.springpetclinic")
 public class SpringPetClinicApplication {
 
   public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package springframework.mgn.springpetclinic.controller;
+package mgn.springframework.springpetclinic.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
