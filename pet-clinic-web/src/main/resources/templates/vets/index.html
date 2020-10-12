@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:replace="~{fragments/layout :: layout (~{::body},'home')}" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>List of vets</title>
 </head>
 <body>
 <h1 th:text="'List of vets'">List of vets...</h1>
-</body>
-<table>
+<table class="table table-striped">
+  <caption>List of vets</caption>
   <thead>
-  <tr>
+  <th id="vetHead">
     <td>Id</td>
     <td>First name</td>
     <td>Last name</td>
-  </tr>
+  </th>
   </thead>
   <tbody>
   <tr th:each="vet : ${vets}">
@@ -23,4 +23,5 @@
   </tr>
   </tbody>
 </table>
+</body>
 </html>
