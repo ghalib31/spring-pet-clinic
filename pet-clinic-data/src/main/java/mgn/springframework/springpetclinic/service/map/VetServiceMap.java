@@ -4,11 +4,18 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
+import mgn.springframework.springpetclinic.model.Speciality;
 import mgn.springframework.springpetclinic.model.Vet;
+import mgn.springframework.springpetclinic.service.SpecialityService;
 import mgn.springframework.springpetclinic.service.VetService;
 
+@AllArgsConstructor
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+  private final SpecialityService specialityService;
+
   @Override
   public Vet findById(final Long id) {
     return super.findById(id);
@@ -16,6 +23,14 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
   @Override
   public Vet save(final Vet vet) {
+    if (vet.getSpecialities().size() > 0) {
+      vet.getSpecialities().forEach(speciality -> {
+        if (speciality.getId() == null) {
+          Speciality savedSpeciality = specialityService.save(speciality);
+          speciality.setId(savedSpeciality.getId());
+        }
+      });
+    }
     return super.save(vet);
   }
 
