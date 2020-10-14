@@ -4,11 +4,19 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
 import mgn.springframework.springpetclinic.model.Owner;
+import mgn.springframework.springpetclinic.model.Pet;
 import mgn.springframework.springpetclinic.service.OwnerService;
+import mgn.springframework.springpetclinic.service.PetService;
+import mgn.springframework.springpetclinic.service.PetTypeService;
 
+@AllArgsConstructor
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
+  private final PetTypeService petTypeService;
+  private final PetService petService;
 
   @Override
   public Owner findById(final Long id) {
@@ -17,7 +25,27 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
   @Override
   public Owner save(final Owner owner) {
-    return super.save(owner);
+    if (owner != null) {
+      if (owner.getPets() != null) {
+        owner.getPets().forEach(pet -> {
+          if (pet.getPetType() != null) {
+            if (pet.getPetType().getId() != null) {
+              pet.setPetType(petTypeService.save(pet.getPetType()));
+            }
+          } else {
+            throw new RuntimeException("Pet type is required");
+          }
+
+          if (pet.getId() == null) {
+            Pet savedPet = petService.save(pet);
+            pet.setId(savedPet.getId());
+          }
+        });
+      }
+      return super.save(owner);
+    } else {
+      return null;
+    }
   }
 
   @Override
