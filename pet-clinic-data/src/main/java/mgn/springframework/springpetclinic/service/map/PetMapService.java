@@ -8,7 +8,7 @@ import mgn.springframework.springpetclinic.model.Pet;
 import mgn.springframework.springpetclinic.service.PetService;
 
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
   @Override
   public Pet findById(final Long id) {
     return super.findById(id);

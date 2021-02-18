@@ -12,7 +12,7 @@ import mgn.springframework.springpetclinic.service.VetService;
 
 @AllArgsConstructor
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
   private final SpecialityService specialityService;
 
@@ -23,7 +23,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
   @Override
   public Vet save(final Vet vet) {
-    if (vet.getSpecialities().size() > 0) {
+    if (vet.getSpecialities().isEmpty()) {
       vet.getSpecialities().forEach(speciality -> {
         if (speciality.getId() == null) {
           Speciality savedSpeciality = specialityService.save(speciality);
