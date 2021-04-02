@@ -10,9 +10,9 @@ import javax.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 
-@MappedSuperclass
 @Getter
 @Setter
+@MappedSuperclass
 public class BaseEntity implements Serializable {
 
   @Id

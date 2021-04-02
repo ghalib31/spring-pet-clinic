@@ -6,9 +6,9 @@ import javax.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 
-@MappedSuperclass
 @Getter
 @Setter
+@MappedSuperclass
 public class Person extends BaseEntity {
 
   @Column(name = "first_name")
