@@ -17,7 +17,7 @@ workflows:
   maven_test:
     jobs:
       - maven/test
-  main:
+  sonar:
     jobs:
       - build:
           context: SonarCloud

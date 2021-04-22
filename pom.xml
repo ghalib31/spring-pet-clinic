@@ -22,12 +22,6 @@
   <name>spring-pet-clinic</name>
   <description>Spring Pet Clinic</description>
 
-  <properties>
-    <java.version>1.8</java.version>
-    <sonar.organization>ghalib31</sonar.organization>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  </properties>
-
   <build>
     <plugins>
       <plugin>
