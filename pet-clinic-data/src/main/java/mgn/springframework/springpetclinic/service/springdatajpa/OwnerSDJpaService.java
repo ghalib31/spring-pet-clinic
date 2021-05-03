@@ -1,6 +1,7 @@
 package mgn.springframework.springpetclinic.service.springdatajpa;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.context.annotation.Profile;
@@ -20,6 +21,10 @@ public class OwnerSDJpaService implements OwnerService {
   @Override
   public Owner findByLastName(final String lastName) {
     return ownerRepository.findByLastName(lastName);
+  }
+
+  public List<Owner> findAllByLastNameLike(final String lastName) {
+    return ownerRepository.findAllByLastNameContainingIgnoreCase(lastName);
   }
 
   @Override
