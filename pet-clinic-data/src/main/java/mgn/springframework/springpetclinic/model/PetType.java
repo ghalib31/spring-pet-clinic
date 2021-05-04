@@ -14,7 +14,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
 @Table(name = "types")
 public class PetType extends BaseEntity {
@@ -24,5 +23,11 @@ public class PetType extends BaseEntity {
   @Override
   public String toString() {
     return name;
+  }
+
+  @Builder
+  public PetType(final String name, final Long id) {
+    super(id);
+    this.name = name;
   }
 }
